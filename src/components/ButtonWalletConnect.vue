@@ -6,11 +6,13 @@
   <div v-if="isLoading" id="loadingWrapper">
     <Loading></Loading>
   </div>
-  <div v-if="connected && !isLoading" id="accessTokenWrapper">
+  <div v-if="connected && !isLoading" id="resultWrapper">
     <p>
       ETH Balance : {{ethBalance }} <br/>
       Token Balance : {{ tokenBalance }} <br/>
-      Access Token : {{accessToken}} <br/>
+      Access Token :
+      <span id="accessToken" >{{accessToken}}</span>
+      <br/>
       Challenge Message: {{challengeMessage}} <br/>
       Signature : {{signature}}
     </p>
@@ -119,6 +121,7 @@ export default {
       );
       const respAuth = await reqAuth.json();
       console.log(`authentication resp %o`, respAuth);
+      this.accessToken = respAuth.tokens.access.token
     }
   }
 }
@@ -134,11 +137,14 @@ export default {
    font-size: 1.5rem;
    border-radius: 0.5rem;
  }
- #accessTokenWrapper{
+ #loadingWrapper {
    margin-top: 5vh;
+ }
+ #resultWrapper{
+   margin-top: 5vh;
+ }
+ #accessToken{
+   font-size: 9px;
  }
 
- #loadingWrapper{
-   margin-top: 5vh;
- }
 </style>

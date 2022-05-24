@@ -14,7 +14,7 @@ import ButtonWalletConnect from "./components/ButtonWalletConnect.vue";
 @import './assets/base.css';
 
 main{
-  margin-top:20vh;
+  padding-top:20vh;
   text-align: center;
 }
 </style>
