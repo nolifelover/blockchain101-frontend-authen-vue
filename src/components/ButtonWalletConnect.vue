@@ -87,7 +87,7 @@ export default {
     },
     async fetchSigningMessage(){
       const reqSignin = await fetch(
-          "http://localhost:4000/v1/auth/signature/singin",
+          "http://localhost:3000/v1/auth/signature/signin",
           {
             method: "POST",
             headers: {
@@ -107,7 +107,7 @@ export default {
       const signatureMsg = await signer?.signMessage(resp.msg);
       this.signature = (signatureMsg || "");
       const reqAuth = await fetch(
-          "http://localhost:4000/v1/auth/signature/authentication",
+          "http://localhost:3000/v1/auth/signature/authentication",
           {
             method: "POST",
             headers: {
